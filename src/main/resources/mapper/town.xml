@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.TownDao">
+    <insert id="insertRanges">
+        INSERT INTO `town_range`(`town_id`, `lng`, `lat`) VALUES
+        <foreach collection="town.points" item="point" separator=",">
+            (#{town.townId},#{point.lng},#{point.lat})
+        </foreach>
+    </insert>
+</mapper>
